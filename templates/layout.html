@@ -7,6 +7,8 @@
         <!-- Add bootstrap -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <!-- Add bootstrap icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <!-- Add own css -->
         <link rel="stylesheet" href="/static/style.css"/>
         <!-- <link rel="stylesheet" href="/static/style.css"> -->
@@ -17,7 +19,13 @@
         <!-- It was created with the help of Bootstrap docs https://getbootstrap.com/docs/5.3/components/navbar/?#forms-->
         <nav class="navbar navbar-expand-md sticky-top bgRedNav">
             <div class="container-fluid ">
-                <a class="navbar-brand textColorWhite" href="/">Barber learning</a>
+                <!-- Button to toggle profile menu -->
+                <button class="btn btn-outline-light" data-bs-toggle="offcanvas" type="button" data-bs-target="#offCanvas" aria-controls="offCanvas" >
+                    <span class="bi bi-list-task"></span>
+                    <!-- <i class="bi bi-list-task"></i> -->
+                </button>
+                <!--  -->
+                <a class="navbar-brand textColorWhite ms-2" href="/">Barber learning</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle Navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -38,22 +46,29 @@
             </div>
         </nav>
     <!-- Body continues -->
-    <!-- Create two main columns within a row -->
-    <div class="row">
-        <!-- First column for hamburguer list -->
-        <div class="col">
-            
-            <nav class="nav flex-column bgBlueColumn">
-                tes
-            </nav>
+    <!-- Button for offcanvas -->
+    <!-- Offcanvas -->
+    <div class="offcanvas offcanvas-start bgBlueColumn" tabindex="-1" id="offCanvas" aria-labelledby="OffcanvasLabel">
+        <div class="offcanvas-header" >
+            <h3 class="offcanvas-title" id="OffcanvasLabel">Profile:</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <!-- Second column (where content is going to be) -->
-        <div class="col">
-            test
+        <div class="offcanvas-body">
+            <!-- Modify later to show profile -->
+            Content for Offcanvas
         </div>
     </div>
-    test 
-        
+    <div class="container">
+    {% block main %} {% endblock %}
+    
+    </div>
+    <div class="container text-center lead textColorFooter rounded-pill shadow">
+        <footer class="">
+            <p>Author: Jose de Jesus Hernandez Ibarra</p>
+            <p><a href="mailto:josehdzibarra@hotmail.com" class="btn btn-outline-secondary bi bi-envelope textColorFooter shadow"> josehdzibarra@hotmail.com</a></p>
+            <p>Developed with HTML, CSS, Javascript, Python and Bootstrap</p>
+        </footer>
+    </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     </body>
 </html>
