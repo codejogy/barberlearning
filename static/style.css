@@ -20,3 +20,12 @@
     background-color: #f6fdff;
     color: #0088e0;
 }
+.textColorRecommend{
+    background-color: rgb(131, 130, 130);
+    color:rgb(253, 253, 253);
+    margin-top:auto;
+}
+img.resize
+{
+    width: 150px;
+}

@@ -2,3 +2,65 @@
 {% block title %}
 Main page
 {% endblock %}
+{% block main %}
+<div class="container">
+    <!-- Starts row -->
+    <div class="row mt-3">
+        <div class="col-2 col-sm-1"></div>
+        <div class="col textColorRecommend rounded-pill shadow">
+            <div class="ms-4 h2">Recomendations</div></div>
+        <div class="col-6"></div>
+    </div>
+    <!-- End row -->
+    <!-- Course -->
+    <!-- Example 1 -->
+    <div class="row mt-4">
+        <div class="col-2 col-md-1 "></div>
+        <div class="col textColorRecommend rounded-pill shadow">
+            <!-- Col for img -->
+            <div class="row align-items-center  text-center ">
+                <div class="col-3 mx-auto">
+                    <img src="{{url_for('static',filename='imgsClient/barbero1.jpg')}}" class="img-thumbnail resize mt-1" alt="Barber">
+                </div>
+                <div class="col-lg-7 align-self-start  mt-md-0 mt-lg-0 mt-1 col-sm-4 text-lg-start text-sm-start">
+                    <!-- Title -->
+                    <p class="h3">Fade Course</p>
+                    <!-- Description -->
+                    <p> If you want to learn how to long locks up top gradually disappear into nothing, this may be the course for you. </p>
+                </div>
+                <div class="col-lg-2 col-sm-3">
+                    <button type="submit" class="btn btn-outline-light">Add Course</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+     <!-- Example 1 -->
+     <!-- Jinja template -->
+     {% for value in values %}
+    <div class="row mt-4">
+        <div class="col-2 col-md-1 "></div>
+        <div class="col textColorRecommend rounded-pill shadow">
+            <!-- Col for img -->
+            <div class="row align-items-center  text-center ">
+                <div class="col-3 mx-auto">
+                    <img src="{{url_for('static',filename='imgsClient/barbero1.jpg')}}" class="img-thumbnail resize mt-1" alt="Barber">
+                </div>
+                <div class="col-lg-7 align-self-start  mt-md-0 mt-lg-0 mt-1 col-sm-4 text-lg-start text-sm-start">
+                    <!-- Title -->
+                    <p class="h3">Fade Course</p>
+                    <!-- Description -->
+                    <p> If you want to learn how to long locks up top gradually disappear into nothing, this may be the course for you. </p>
+                </div>
+                <div class="col-lg-2 col-sm-3">
+                    <button type="submit" class="btn btn-outline-light">Add Course</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <!-- Row for every new course -->
+    {% endfor %}
+     <!-- Jinja template -->
+</div>
+{% endblock %}
