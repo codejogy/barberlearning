@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% block title %}
+Create course
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-1"></div>
+        <div class="col">
+            <!-- Top Row -->
+            <div class="row">
+                <div class="col-6 rounded-pill shadow textColorRecommend">
+                    <p class="h2 ms-4">Create course</p>
+                </div>
+            </div>
+            <!-- Main row -->
+            <div class="row mt-5 textColorRecommend text-dark rounded-3">
+                <div class="col">
+                    <div class="form-floating my-2" >
+                        <input type="text" name="coursename" id="coursename" class="form-control" placeholder="course">
+                        <label for="coursename">Course name</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating my-2">
+                        <input type="file" name="submitimage" id="submitimage" class="form-control" placeholder="Submit image">
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Description -->
+                    <div class="form-floating my-2">
+                        <textarea name="description" id="description" rows="5"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div>
+
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}
