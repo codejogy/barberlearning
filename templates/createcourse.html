@@ -15,7 +15,7 @@ Create course
                 </div>
             </div>
             <!-- Main row -->
-            <div class="row mt-5 textColorRecommend text-dark rounded-3">
+            <div class="row mt-5 textColorRecommend text-dark rounded-3 shadow">
                 <div class="col">
                     <div class="form-floating my-2" >
                         <input type="text" name="coursename" id="coursename" class="form-control" placeholder="course">
@@ -25,20 +25,27 @@ Create course
                 <div class="col">
                     <div class="form-floating my-2">
                         <input type="file" name="submitimage" id="submitimage" class="form-control" placeholder="Submit image">
+                        <label for="submitimage">Thumbnail</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Description -->
-                    <div class="form-floating my-2">
-                        <textarea name="description" id="description" rows="5"></textarea>
+                    <label for="description" style="color: rgb(253, 253, 253);" class="mb-1">Description about the course</label>
+                    <div class="col-12 ms-2 mb-3">
+                        <textarea name="description" id="description" class="form-control" style="height: 100px;"></textarea>
                     </div>
                 </div>
             </div>
-            <div>
-
-            </div>
-        </div>
-        
+            <!-- Additional content  -->
+             <div class="row">
+                <div class="col rounded-3 shadow textColorRecommend mt-4">
+                    <p class="h2 ms-4">Additional content</p>
+                    
+                </div>
+             </div>
+             <div class="row">
+                <input type="submit" value="Submit" class="btn btn-light mt-3">
+             </div>
     </div>
 </div>
 {% endblock %}
