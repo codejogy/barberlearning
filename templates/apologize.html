@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block title %}
+Error {{e.code}}
+{% endblock %}
+
+{% block main %}
+<div class="row">
+    <div class="col text-center   lead">
+        <div class="textColorLogIn rounded-5 my-3 display-3">{{e.code}}</div>
+        <div class="textColorLogIn rounded-3 mb-2 h5 py-3">{{e.name}}</div>
+        <div class="textColorLogIn rounded-3 py-2">{{e.description}}</div>
+    </div>
+</div>
+{% endblock %}
