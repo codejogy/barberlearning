@@ -20,10 +20,10 @@
         <nav class="navbar navbar-expand-md sticky-top bgRedNav">
             <div class="container-fluid ">
                 <!-- Button to toggle profile menu -->
-                <button class="btn btn-outline-light" data-bs-toggle="offcanvas" type="button" data-bs-target="#offCanvas" aria-controls="offCanvas" >
-                    <span class="bi bi-list-task"></span>
-                    <!-- <i class="bi bi-list-task"></i> -->
-                </button>
+                <!-- <button class="btn btn-outline-light" data-bs-toggle="offcanvas" type="button" data-bs-target="#offCanvas" aria-controls="offCanvas" >
+                    <span class="bi bi-list-task"></span> -->
+                    
+                <!-- </button> -->
                 <!--  -->
                 <a class="navbar-brand textColorWhite ms-2" href="/">Barber Learning</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle Navigation">
@@ -39,8 +39,13 @@
                     <!-- Nav Right items -->
                     <div class="navbar-nav justify-content-end">
                         <a href="/createcourse" class="nav-link textColorWhite">Create Course</a>
+                        {% if not user %}
                         <a href="/signin" class="nav-link textColorWhite">Sign In</a>
                         <a href="/login" class="nav-link textColorWhite">Log In</a>
+                        {% else %}
+                        <a href="" class="nav-link textColorWhite ms-3 fw-bold" data-bs-toggle="offcanvas" data-bs-target="#offCanvas" aria-controls="offCanvas">{{user}}</a>
+                        <a href="/logout" class="nav-link textColorWhite">Log out</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -53,10 +58,13 @@
             <h3 class="offcanvas-title" id="OffcanvasLabel">Profile:</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body">
+        <div class="offcanvas-body border-top">
             <!-- Modify later to show profile -->
-            {% for content in contents %}
-            Test
+            <div class="h5 mb-5">Signed courses:</div>
+            {% for course in coursesUser %}
+            <div class="border-bottom mb-3">
+                <a href="/" class="mb-3 text-light lead" style="text-decoration: none;">{{course.name_course}}</a>
+            </div>
             {% endfor %}
         </div>
     </div>

@@ -7,45 +7,56 @@ Create course
 <div class="container">
     <div class="row mt-3">
         <div class="col-1"></div>
-        <div class="col">
-            <!-- Top Row -->
-            <div class="row">
-                <div class="col-6 rounded-pill shadow textColorRecommend">
-                    <p class="h2 ms-4">Create course</p>
-                </div>
-            </div>
-            <!-- Main row -->
-            <div class="row mt-5 textColorRecommend text-dark rounded-3 shadow">
-                <div class="col">
-                    <div class="form-floating my-2" >
-                        <input type="text" name="coursename" id="coursename" class="form-control" placeholder="course">
-                        <label for="coursename">Course name</label>
+        <form action="/createcourse" method="POST" enctype="multipart/form-data">
+            <div class="col">
+                <!-- Top Row -->
+                <div class="row">
+                    <div class="col-6 rounded-pill shadow textColorRecommend">
+                        <p class="h2 ms-4">Create course</p>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="form-floating my-2">
-                        <input type="file" name="submitimage" id="submitimage" class="form-control" placeholder="Submit image">
-                        <label for="submitimage">Thumbnail</label>
+                <!-- Main row -->
+                {% if user %}
+                <div class="row mt-5 textColorRecommend text-dark rounded-3 shadow">
+                    <div class="col">
+                        <div class="form-floating my-2" >
+                            <input type="text" name="course_name" id="coursename" class="form-control" placeholder="course">
+                            <label for="coursename">Course name</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating my-2">
+                            <input type="file" name="thumbnail" id="submitimage" class="form-control" placeholder="Submit image">
+                            <label for="submitimage">Thumbnail</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Description -->
+                        <label for="description" style="color: rgb(253, 253, 253);" class="mb-1">Description about the course</label>
+                        <div class="col-12 ms-2 mb-3">
+                            <textarea name="description" id="description" class="form-control" style="height: 100px;"></textarea>
+                        </div>
+                    </div>
+                </div>
+            <!-- Additional content  -->
+                <div class="row">
+                    <div class="col rounded-3 shadow textColorRecommend mt-4">
+                        <p class="h2 ms-4">Additional content</p>
+                        
                     </div>
                 </div>
                 <div class="row">
-                    <!-- Description -->
-                    <label for="description" style="color: rgb(253, 253, 253);" class="mb-1">Description about the course</label>
-                    <div class="col-12 ms-2 mb-3">
-                        <textarea name="description" id="description" class="form-control" style="height: 100px;"></textarea>
+                    <input type="submit" value="Submit" class="btn btn-light mt-3">
+                </div>
+                {% else %}
+                <div class="row mt-5 textColorRecommend text-center rounded-3 shadow display-5">
+                    <div class="col text-center">
+                        Log In to create courses
                     </div>
                 </div>
+                {% endif %}
             </div>
-            <!-- Additional content  -->
-             <div class="row">
-                <div class="col rounded-3 shadow textColorRecommend mt-4">
-                    <p class="h2 ms-4">Additional content</p>
-                    
-                </div>
-             </div>
-             <div class="row">
-                <input type="submit" value="Submit" class="btn btn-light mt-3">
-             </div>
+        </form>
     </div>
 </div>
 {% endblock %}
