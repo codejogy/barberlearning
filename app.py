@@ -36,9 +36,9 @@ def index():
         # Add the course to the users
         db.query('INSERT INTO courses_belong (idUser,idCourse) VALUES (?,?)',session['user_id'],idCourse)
     
-    # Give the offcanvas the courses that belong to that user
-
-    courses = db.query('SELECT * FROM courses LIMIT 10')
+    
+    # Limit the total amount of description by the last value in substring
+    courses = db.query('SELECT id,idUser,name_course,thumbnail_link,SUBSTRING(description,0,200) description FROM courses')
 
     if session.get('user_id'):
         return render_template('index.html',user=session['user'], courses=courses)
@@ -163,7 +163,7 @@ def createCourse():
             # Thumbnail saved
             # Record it in the database
             db.query('INSERT INTO courses (idUser,name_course,thumbnail_link,description) VALUES (?, ?, ?, ?)',
-                     session['user_id'], session['user'], path, description)
+                     session['user_id'], courseName, path, description)
             print('Success!')
             return redirect('/')
     # print(courseName,thumbnail,description,sep='\n')
@@ -181,17 +181,17 @@ def logout():
 # Define a new id, this id will tell which course to watch 
 @app.route('/course/<int:id>')
 def courseId(id):
-    courseData = db.query('SELECT * FROM courses WHERE id = ?',id)[0]
+    courseData = db.query('SELECT *, users.username FROM courses JOIN users ON idUser=users.id WHERE courses.id=?',id)
     if not courseData:
         # This means there's no data in the database for that id
         abort(400,'This course does not exists')
     
-    print(courseData.keys())
+    print(courseData[0].keys())
 
     # Check for all the data from the database
-    if userId:=session.get('user_id'):
-        return render_template('course.html',user=userId,courseData=courseData)
-    return render_template('course.html',courseData=courseData,)
+    if user:=session.get('user'):
+        return render_template('course.html',user=user,courseData=courseData[0])
+    return render_template('course.html',courseData=courseData[0],)
 
 
 

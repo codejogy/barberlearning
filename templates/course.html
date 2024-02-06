@@ -4,5 +4,28 @@ Course {{courseData.name_course}}
 {% endblock %}
 
 {% block main %}
-test
+<div class="row text-center display-3 textColorRecommend">
+    <div class="col"></div>
+    <div class="col">
+        <p>{{courseData.name_course}}</p>
+    </div>
+    <div class="col"></div>
+</div>
+
+<div class="row textColorLogIn h4  mt-5">
+    <div class="col-1"></div>
+    <div class="col">
+        Made by: {{courseData.username}}
+    </div>
+    <!-- <div class="col"></div> -->
+</div>
+
+<div class="row textColorRecommend lead mt-4">
+    <div class="col-1"></div>
+    <div class="col mb-2">
+        <img src="{{url_for('static',filename=courseData.thumbnail_link)}}" class="img-thumbnail resizeCourse float-start mt-1 me-4 mb-4 " alt="Barber">
+        {{courseData.description}}
+    </div>
+    <div class="col-1"></div>
+</div>
 {% endblock %}

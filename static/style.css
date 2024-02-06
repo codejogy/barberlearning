@@ -29,6 +29,10 @@ img.resize
 {
     width: 150px;
 }
+img.resizeCourse
+{
+    width:300px;
+}
 .textColorLogIn{
     background-color:rgb(78, 78, 78);
     color:azure;
