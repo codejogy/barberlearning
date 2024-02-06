@@ -178,6 +178,24 @@ def logout():
     session.clear()
     return redirect('/')
 
+# Define a new id, this id will tell which course to watch 
+@app.route('/course/<int:id>')
+def courseId(id):
+    courseData = db.query('SELECT * FROM courses WHERE id = ?',id)[0]
+    if not courseData:
+        # This means there's no data in the database for that id
+        abort(400,'This course does not exists')
+    
+    print(courseData.keys())
+
+    # Check for all the data from the database
+    if userId:=session.get('user_id'):
+        return render_template('course.html',user=userId,courseData=courseData)
+    return render_template('course.html',courseData=courseData,)
+
+
+
+
 # Error handler (allows the program to give a personalized html for errors)
 @app.errorhandler(HTTPException)
 def apologize(e):
@@ -202,8 +220,8 @@ def current_courses():
         return dict(courses='')
     courses = db.query('''SELECT * FROM courses WHERE id IN (
         SELECT idCourse FROM courses_belong WHERE idUser = ?)''',session['user_id'])
-    for row in courses:
-        print(row['name_course'])
+    # for row in courses:
+        # print(row['name_course'])
     return dict(coursesUser=courses)
     # print('List: ',coursesUser)
     
