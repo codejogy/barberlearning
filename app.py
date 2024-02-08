@@ -184,7 +184,7 @@ def courseId(id):
     courseData = db.query('SELECT *, users.username FROM courses JOIN users ON idUser=users.id WHERE courses.id=?',id)
     if not courseData:
         # This means there's no data in the database for that id
-        abort(400,'This course does not exists')
+        abort(404,'This course does not exists')
     
     print(courseData[0].keys())
 
